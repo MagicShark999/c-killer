@@ -22,8 +22,38 @@
  * 
  * 
 */
+#include <stdlib.h> 
+#include <stdio.h>  
+
+
+
+
 
 int main(int argc,char* argv[]){ 
+    int a;
+    int b;
+    
+   
+    while (1)
+    {   printf("Please enter a&b:\n");
+        scanf("%d%d",&a,&b);
+       
+        if(a==0 && b==0)break;
+        int c;
+        c=a;
+        a=b;
+        b=c;
+        printf("交换后a=%d,b=%d.\n",a,b);
+        
+        
+        
+    };
+    return 0;
+
+
+
+
+
 
 
 }
