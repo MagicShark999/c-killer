@@ -39,10 +39,10 @@ int main(int argc,char* argv[]){
         scanf("%d%d",&a,&b);
        
         if(a==0 && b==0)break;
-        int c;
-        c=a;
-        a=b;
-        b=c;
+        
+        a=a+b;
+        b=a-b;
+        a=a-b;
         printf("交换后a=%d,b=%d.\n",a,b);
         
         
