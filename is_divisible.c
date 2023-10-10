@@ -20,10 +20,23 @@
 
 
 _Bool is_divisible(int n, int m) {
-    
+    if (n % m == 0) {  
+        return 1;  
+    } else {  
+        return 0;
+    }
+
 }
-
-
 int main() {
- 
+ int n, m;  
+    printf("请输入两个整数：\n");  
+    scanf("%d %d", &n, &m);  
+  
+    if (is_divisible(n, m)) {  
+        printf("%d可以被%d整除\n", n, m);  
+    } else {  
+        printf("%d不能被%d整除\n", n, m);  
+    }  
+  
+    return 0;  
 }
