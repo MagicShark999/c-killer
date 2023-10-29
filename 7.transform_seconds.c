@@ -20,7 +20,17 @@
  * 
 */
 
+#include <stdio.h>
+
+
 
 int main() {
-
+  long h,m,s,total;
+  printf("please input the total second:");
+  scanf("%d",&total);
+  h=total/3600;
+  m=(total/60)%60;
+  s=total%60;
+  printf("%02d:%02d:%02d",h,m,s);
+  return 0;
 }
