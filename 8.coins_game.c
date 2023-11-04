@@ -34,11 +34,66 @@
 /**
  * 该函数用来模拟抛硬币,如果正面返回1,反面返回0
 */
-_Bool flip_coin(){
+#include <stdio.h>
+#include <stdlib.h>  
+#include <time.h> 
 
+
+_Bool flip_coin(){
+    int coin = (int)rand() % 2;  
+        if (coin ==1) {  
+            return 1; 
+        } else {  
+            return 0;   
+        }  
 }
 
 int main(){
+    int money, count, cost, rate, games;  
+    int won = 0, lost = 0;  
+    _Bool bet_again = 1;  
+    srand(time(NULL)); 
+    
+    printf("Enter your money: ");  
+    scanf("%d", &money);  
+    printf("Enter the count of coins: ");  
+    scanf("%d", &count);  
+    printf("Enter the cost of coins: ");  
+    scanf("%d", &cost);  
+    printf("Enter the rate of coins: ");  
+    scanf("%d", &rate);  
+    printf("Enter the count of games: ");  
+    scanf("%d", &games);  
+    
+        
+    while (bet_again && games > 0) {  
+        int bet = money - cost;  
+        if (bet <= 0) {  
+            printf("Game over.\n");  
+            bet_again = 0;   
+        } else {  
+            for (int i = 0; i < count; i++) {  
+                if (flip_coin()) { 
+                    printf("You win %d!\n",rate);  
+                    won += bet + rate;  
+                } else { 
+                    printf("You lose %d!\n", rate-cost);  
+                    lost += bet;  
+                }  
+            }  
+            money = lost - won;   
+            games--;  
+            printf("All you have left is %d.If you want to play again, please enter one; otherwise, please enter zero\n", money);  
+            scanf("%d", &bet_again); 
+        }  
+    }  
+    
 
-}
+    if (bet_again) {  
+        printf("You won %d!\n", won);  
+    } else {  
+        printf("You lost %d!\n", lost);  
+    }  
+        return 0;  
+    }
 
