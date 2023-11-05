@@ -13,7 +13,7 @@ void output_space(int n){
 
 
 int main() {
-    int N=8;
+    int N=9;
  
  
     int i, j, k;
