@@ -46,7 +46,7 @@ void output_space(int n)
 int main()
 {
   int line, k, a, b, d;
-  int side_len = 8; // 取一个有意义的名字
+  int side_len = 9; // 取一个有意义的名字
 
   char c = 'Z';       //
   int char_index = 0; // 用于计算字母的索引,每输出一个字符,索引+1，到A时，索引为26
@@ -85,7 +85,7 @@ int main()
         printf("%c", c);
         c--; // 从Z->Y
         if (c == 64) c = 'Z';
-        output_space(2 * (2 * side_len - line )-(side_len-3)+1); // 这是中间空格的个数
+        output_space( (2 * (side_len-2) -2* (line-side_len) )); // 这是中间空格的个数
         printf("%c", c);
         c--; // 从Z->Y
         if (c == 64) c = 'Z';
