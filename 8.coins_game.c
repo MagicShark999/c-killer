@@ -37,10 +37,10 @@
 #include <stdio.h>
 #include <stdlib.h>  
 #include <time.h> 
-
+#include<stdbool.h>
 
 _Bool flip_coin(){
-    int coin = (int)rand() % 2;  
+    int coin = (int)rand() % 2;  // rand是一个随机函数,返回一个0-1随机数
         if (coin ==1) {  
             return 1; 
         } else {  
@@ -52,12 +52,12 @@ int main(){
     int money, count, cost, rate, games;  
     int won = 0, lost = 0;  
     _Bool bet_again = 1;  
-    srand(time(NULL)); 
+    // srand(time(NULL));  
     
     printf("Enter your money: ");  
     scanf("%d", &money);  
-    printf("Enter the count of coins: ");  
-    scanf("%d", &count);  
+    // printf("Enter the count of coins: ");  
+    // scanf("%d", &count);   这个参数不需要了
     printf("Enter the cost of coins: ");  
     scanf("%d", &cost);  
     printf("Enter the rate of coins: ");  
@@ -65,35 +65,34 @@ int main(){
     printf("Enter the count of games: ");  
     scanf("%d", &games);  
     
-        
-    while (bet_again && games > 0) {  
-        int bet = money - cost;  
-        if (bet <= 0) {  
-            printf("Game over.\n");  
-            bet_again = 0;   
-        } else {  
-            for (int i = 0; i < count; i++) {  
-                if (flip_coin()) { 
-                    printf("You win %d!\n",rate);  
-                    won += bet + rate;  
-                } else { 
-                    printf("You lose %d!\n", rate-cost);  
-                    lost += bet;  
-                }  
-            }  
-            money = lost - won;   
-            games--;  
-            printf("All you have left is %d.If you want to play again, please enter one; otherwise, please enter zero\n", money);  
-            scanf("%d", &bet_again); 
-        }  
-    }  
-    
+    // 记住原先的钱,用来判断你赢了还是输了
+    int old_money = money;
 
-    if (bet_again) {  
-        printf("You won %d!\n", won);  
-    } else {  
-        printf("You lost %d!\n", lost);  
-    }  
+    for (int i = 0; i < games; i++) {      // 你要玩多少次,就循环多少次      
+        if(money<cost){        // 如果钱还不够抛硬币的花费,则退出循环
+            printf("你的钱不够了,不能再玩了!\n");
+            break;
+        }
+        // 无论你赢了还是输了,你的钱都要减去每次抛硬币的花费,就像你买彩票2块钱,你要先减去买彩票的钱      
+        money-=cost; // 你的钱要先减去每次抛硬币的花费,就像你买彩票2块钱,你要先减去买彩票的钱
+        if (flip_coin()) { // 正面代表赢了，所以你的钱要加上赔率                    
+            // 赢了就可以得到赔率的奖金,就像你买彩票中奖5块了,你要加上奖金
+            money += rate;  // 因为你赢了,所以你的 要加上赔率，就像你买彩票中奖5块了,你要加上奖金
+            printf("你赢了一次,余额%d!\n",money);   
+        } else { //  反面代表输了，所以你的钱要减去赔率                    
+            printf("你输了一次,余额%d!\n",money);   // 输了
+        }  
+    }    
+
+    // 退出循环后,如果你的钱大于原先的钱,则代表你赢了,否则代表你输了
+
+    if (money > old_money ) {  
+        printf("You won %d!\n", money - old_money);  
+    } else if(money <old_money ){  
+        printf("You lost %d!\n", old_money-money);  
+    }else{
+        printf("你白忙活了\n");  
+    }
         return 0;  
     }
 

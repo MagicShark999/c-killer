@@ -85,7 +85,7 @@ int main()
         printf("%c", c);
         c--; // 从Z->Y
         if (c == 64) c = 'Z';
-        output_space(2 * (2 * side_len - line )-5+1); // 这是中间空格的个数
+        output_space(2 * (2 * side_len - line )-(side_len-3)+1); // 这是中间空格的个数
         printf("%c", c);
         c--; // 从Z->Y
         if (c == 64) c = 'Z';
