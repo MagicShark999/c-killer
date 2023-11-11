@@ -20,9 +20,32 @@
  * 
  * 
 */
-
+#include<stdio.h>
 
 
 int main(){
-
+    int a[5]={1,2,3,4,5};
+    int b,c,d,e,g;
+    for (int i = 0; i < 5; i++){
+        for (int j = 0; j < 5 ; j++){
+            if (j!=i){
+                for (int h = 0; h < 5 ; h++){
+                    if (h!=i && h!=j){
+                        for (int k = 0; k < 5 ; k++){
+                            if (k!=i && k!=h && k!=j){
+                                for (int r = 0; r < 5 ; r++){
+                                    if (r!=i && r!=h && r!=j && r!=k){
+                                        printf("%d%d%d%d%d\n",a[i],a[j],a[h],a[k],a[r]);
+                                    }
+                                }
+                            }
+                        }
+            
+                    }
+                }
+            }
+        }
+        
+    }
+    
 }
