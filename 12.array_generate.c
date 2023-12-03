@@ -26,12 +26,31 @@
 /**
  * 
 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 int* new_array(int n){
+    int* arr = (int*)malloc(n * sizeof(int));
+    srand(time(NULL));
 
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % 1000;
+    }
+
+    return arr;
 }
 
 
-int main(){
 
-
-}
+// int main(){
+//     int n;
+//     printf("请输入一个整数n:");
+//     scanf("%d",&n);
+//     int *arr=new_array(n);
+//     for (int i = 0; i < n; i++) {
+//         printf("%d ", arr[i]);
+//         if (i != 0 && (i + 1) % 10 == 0) {
+//             printf("\n");
+//         }
+//     }
+// }

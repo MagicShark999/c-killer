@@ -32,11 +32,31 @@
  * arr: 数组
  * 
 */
-int sum_array(int arr[]){
- 
+#include "12.array_generate.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int sum_array(int arr[],int n){
+    int sum=0;
+    for (int i = 0; i < n; i++){
+       sum=sum+arr[i];
+    }
+    return sum;
 }
 
 
-void main(){
- 
+int main(){
+    int n;
+    printf("请输入一个整数n:");
+    scanf("%d",&n);
+    int *arr=new_array(n);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+        if (i != 0 && (i + 1) % 10 == 0) {
+            printf("\n");
+        }
+    }
+    sum_array(arr,n);
+    printf("%d",sum_array(arr,n));
+    return 0;
 }

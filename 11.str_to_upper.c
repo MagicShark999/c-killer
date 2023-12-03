@@ -25,23 +25,41 @@
 
  * 
 */
-
+#include <stdlib.h> 
+#include <stdio.h>  
+#include <stdbool.h>
 
 
 /**
  * ：判断字符c是否是小写字母，如果是小写字母，返回1，否则返回0
 */
 _Bool is_lower(char c){
-
+      if (c>='a' && c <='z') {  
+        return 1;  
+    } else {  
+        return 0;
+    }
 }
 /**
  * 将输入的字符串转换为大写字母
 */
 void to_upper(char str[]){
+  int i;
+  for (i = 0; str[i] != '\0'; i++) {  
+        if (is_lower(str[i])) {  
+            str[i] = str[i] - 32;  
+        }  
+    }  
+}  
+  
 
-}
  
 
- void main(){
- 
+int main(){
+      char str[100];
+      printf("请输入一串字母:");
+      fgets(str,sizeof(str),stdin);
+      to_upper(str);
+      printf("%s",str);
+      return 0;
  }
