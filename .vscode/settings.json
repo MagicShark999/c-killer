@@ -4,5 +4,6 @@
         "algorithm": "c",
         "stdio.h": "c",
         "stdlib.h": "c"
-    }
+    },
+    "commentTranslate.targetLanguage": "en"
 }
