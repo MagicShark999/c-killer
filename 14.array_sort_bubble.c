@@ -13,15 +13,42 @@
  * 
 */
 
+#include "12.array_generate.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 void show_array(int arr[],int n){
- 
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+        if (i != 0 && (i + 1) % 10 == 0) {
+            printf("\n");
+        }
+    }
 }
 
 
 void bubble_sort(int arr[],int n){
-
+    int i,j,temp;
+    for ( i = 1; i < n; i++){
+       for ( j = 0; j < n-i; j++){
+        if (arr[j]>arr[j+1]){
+            temp=arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+       }
+    }
+    
 }
 
 int main(){
-    
+    int n;
+    printf("请输入一个整数n:");
+    scanf("%d",&n);
+    printf("随机生成的数组为：");
+    int *arr=new_array(n);
+    show_array(arr,n);
+    bubble_sort(arr,n);
+    printf("排序后的数组为：");
+    show_array(arr,n);
 }

@@ -21,13 +21,24 @@
  * 
  */
 
-
+#include <stdio.h>  
+#include <stdlib.h>  
+#include <string.h>  
 
 char* str_cut(char* s,int start,int len){
-
+     char* s2 = (char*)malloc((len + 1) * sizeof(char));
+     memcpy(s2, s + start - 1, len);  
+     return s2;    
 }
 
 
 int main(){
-
+    char s[100]; 
+    printf("请输入一个字符串：\n");  
+    scanf("%s", s);  
+    int start, len;  
+    printf("请输入想要截取的起始位置和个数:\n");  
+    scanf("%d%d", &start, &len); 
+    char* s2 = str_cut(s, start, len);
+    printf("s2 = %s\n", s2);  
 }
