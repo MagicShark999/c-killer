@@ -26,13 +26,34 @@
  *  - 在sort中需要进行强制类型转换
  * 
  */
-
+#include <stdio.h>  
+#include <stdlib.h>  
+#include <string.h>  
+  
 
 void sort(void* arr,int item_size){
-
+     int arr_len[sizeof(arr) / sizeof(arr[0])]; 
+     for (int i = 0; i <item_size ; i++) {  
+        arr[i] = (int) arr[i];  
+    }  
+    int i,j,temp;
+    for ( i = 1; i < item_size; i++){
+       for ( j = 0; j <item_size-i; j++){
+        if (arr[j]>arr[j+1]){
+            temp=arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+       }
+    }
 }
 
 int main(){
-    
+    int list1[]={34,6,1,7,1,7,3,4,666,34,46,22,41,33};
+    long list2[]={4,6,341,37,11,7,3,4,66,34,46,212,421,3};
+    char* list3="1469bvdsdw25d";
+    int length1 = sizeof(list1) / sizeof(list1[0]);  
+    int length2 = sizeof(list2) / sizeof(list2[0]);  
+    int length3 = strlen(list3);  
 } 
 

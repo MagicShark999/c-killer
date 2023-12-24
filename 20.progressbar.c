@@ -28,8 +28,33 @@
  * 
  * 
 */
+#include <stdio.h>  
+#include <unistd.h>
 
-int main(){
 
-
+  
+void jdt(int per, int width, int max) {  
+    int a = width * per / max;   
+    printf("\r"); 
+    for (int i = 0; i < a; i++) {  
+        printf("#"); 
+    }  
+    for (int i = a; i < width; i++) {  
+        printf(" "); 
+    }  
+    printf(" %d%%", per); 
+    fflush(stdout); 
+}  
+  
+int main() {  
+    int width = 80; 
+    int max = 100; 
+    int sjjg = 1000000; 
+  
+    for (int i = 0; i <= max; i++) {  
+        jdt(i, width, max);  
+        usleep(sjjg);   
+    }  
+    printf("\n");  
+    return 0;  
 }

@@ -10,9 +10,34 @@
  *  
  * 
 */
-
-
+#include <stdio.h>  
+#include <string.h>  
 int main(){
+    int i;
+    char k;
+    char arr[101]="###############################################################";
+    printf("%s", arr);  
+    fflush(stdout);     
+        while (1)
+        {
+            scanf("%c",&k);
+            if (k==77)
+            {
+               printf("\b ");
+            }else if (k==75)
+            {
+                 printf("#");
+            }else
+                break;
+            
+            
+                
+    }  
+        
+       
+        
 
+    
+   
 
 }
