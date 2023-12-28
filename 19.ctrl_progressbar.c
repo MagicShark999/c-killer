@@ -11,20 +11,21 @@
  * 
 */
 #include <stdio.h>  
-#include <string.h>  
+#include <string.h>
+#include<conio.h>  
 int main(){
     int i;
     char k;
-    char arr[101]="###############################################################";
+    char arr[101]="############################";
     printf("%s", arr);  
     fflush(stdout);     
         while (1)
         {
-            scanf("%c",&k);
-            if (k==77)
+            k=getch();
+            if (k==75||k==224)
             {
                printf("\b ");
-            }else if (k==75)
+            }else if (k==77||k==224)
             {
                  printf("#");
             }else
